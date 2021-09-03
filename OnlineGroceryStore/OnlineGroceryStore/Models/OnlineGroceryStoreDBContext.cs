@@ -1,12 +1,10 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
-using OnlineGroceryStore.AdminDetailsModel;
-using OnlineGroceryStore.Models;
 
 #nullable disable
 
-namespace OnlineGroceryStore.CategoryProduct
+namespace OnlineGroceryStore.AddressModel
 {
     public partial class OnlineGroceryStoreDBContext : DbContext
     {
@@ -19,6 +17,7 @@ namespace OnlineGroceryStore.CategoryProduct
         {
         }
 
+        public virtual DbSet<Addre> Addres { get; set; }
         public virtual DbSet<Admindetail> Admindetails { get; set; }
         public virtual DbSet<Billdetail> Billdetails { get; set; }
         public virtual DbSet<Branddetail> Branddetails { get; set; }
@@ -38,6 +37,75 @@ namespace OnlineGroceryStore.CategoryProduct
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
+
+            modelBuilder.Entity<Addre>(entity =>
+            {
+                entity.HasKey(e => e.Customerid)
+                    .HasName("PK__tmp_ms_x__B61ED7F59AB83578");
+
+                entity.ToTable("addres");
+
+                entity.Property(e => e.Customerid)
+                    .ValueGeneratedNever()
+                    .HasColumnName("customerid");
+
+                entity.Property(e => e.Apartment)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Area)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Bulding)
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("bulding");
+
+                entity.Property(e => e.City)
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("city");
+
+                entity.Property(e => e.Company)
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("company");
+
+                entity.Property(e => e.FlatNo).HasColumnName("flat no");
+
+                entity.Property(e => e.Landmark)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Mobile).HasColumnName("mobile");
+
+                entity.Property(e => e.Name)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Pincode).HasColumnName("pincode");
+
+                entity.Property(e => e.State)
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("state");
+
+                entity.Property(e => e.Street)
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("street");
+
+                entity.Property(e => e.Town)
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("town");
+
+                entity.Property(e => e.Village)
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("village");
+            });
 
             modelBuilder.Entity<Admindetail>(entity =>
             {

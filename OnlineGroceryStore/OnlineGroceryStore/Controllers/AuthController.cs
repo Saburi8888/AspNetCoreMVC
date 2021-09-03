@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using OnlineGroceryStore.Models;
 using OnlineGroceryStore.AdminDetailsModel;
 using OnlineGroceryStore.CategoryProduct;
+using OnlineGroceryStore.AddressModel;
 
 namespace OnlineGroceryStore.Controllers
 {
@@ -24,7 +25,7 @@ namespace OnlineGroceryStore.Controllers
         }
 
         [HttpPost]
-        public IActionResult AdminRegister(Admindetail obj)
+        public IActionResult AdminRegister(AddressModel.Admindetail obj)
         {
 
             if (ModelState.IsValid)
@@ -42,7 +43,7 @@ namespace OnlineGroceryStore.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult AdminLogin(Admindetail obj)
+        public ActionResult AdminLogin(AdminDetailsModel.Admindetail obj)
         {
 
 
@@ -72,7 +73,7 @@ namespace OnlineGroceryStore.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult CustomerRegister(Customer obj)
+        public IActionResult CustomerRegister(AddressModel.Customer obj)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +91,7 @@ namespace OnlineGroceryStore.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult CustomerLogin(Customer obj)
+        public ActionResult CustomerLogin(AddressModel.Customer obj)
         {
 
 

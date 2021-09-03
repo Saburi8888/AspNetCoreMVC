@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Models\AddAddressModel\**" />
+    <Content Remove="Models\AddAddressModel\**" />
+    <EmbeddedResource Remove="Models\AddAddressModel\**" />
+    <None Remove="Models\AddAddressModel\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.Data.SqlClient" Version="3.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.9">

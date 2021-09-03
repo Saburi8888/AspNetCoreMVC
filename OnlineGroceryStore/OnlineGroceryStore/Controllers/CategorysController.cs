@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using OnlineGroceryStore.AddressModel;
 using OnlineGroceryStore.AdminDetailsModel;
 using OnlineGroceryStore.CategoryProduct;
 using System;
@@ -36,7 +37,7 @@ namespace OnlineGroceryStore.Models
         // POST: CategorysController/Create
         [HttpPost]
         //[ValidateAntiForgeryToken]
-        public ActionResult Create(Category obj)
+        public ActionResult Create(AddressModel.Category obj)
         {
             try
             {
@@ -76,7 +77,7 @@ namespace OnlineGroceryStore.Models
         public ActionResult Delete(int id)
         {
             OnlineGroceryStoreDBContext ogsd = new OnlineGroceryStoreDBContext();
-            Category cat = ogsd.Categories.FirstOrDefault(i=> i.CategoryId ==id);
+            AddressModel.Category cat = ogsd.Categories.FirstOrDefault(i=> i.CategoryId ==id);
             return View(cat);
         }
 
@@ -89,7 +90,7 @@ namespace OnlineGroceryStore.Models
             {
                 OnlineGroceryStoreDBContext ogsd = new OnlineGroceryStoreDBContext();
                 int id = int.Parse(Request.Form["DeleteCategoryId"].ToString());
-                Category cat = ogsd.Categories.FirstOrDefault(i=> i.CategoryId == id);
+                AddressModel.Category cat = ogsd.Categories.FirstOrDefault(i=> i.CategoryId == id);
                 ogsd.Categories.Remove(cat);
                 ogsd.SaveChanges();
                 return RedirectToAction("Index");
